@@ -1,4 +1,4 @@
-# Mesen RMO
+# Mesen RNO
 
 Mesen is a cross-platform NES/Famicom emulator for Windows & Linux built in C++ and C#.
 
@@ -23,4 +23,4 @@ An executable file for the most reason version of Mesen RNO **can soon** be down
 Alternatively you can build from source. Instructions posted later.
 
 ### License
-Mesen RNO is licensed under the [GNU General Public License v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.htm)
+Mesen RNO is licensed under the [GNU General Public License v3.0](LICENSE)
