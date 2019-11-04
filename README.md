@@ -2,8 +2,6 @@
 
 Mesen is a cross-platform NES/Famicom emulator for Windows & Linux built in C++ and C#.
 
-Mednafen RMO is an Multiplatform emulator for Windows and multiple other OSes.
-
 ## Info
 This emulator bundled a modified version of Mesen
 
