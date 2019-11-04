@@ -149,13 +149,12 @@ namespace Mesen.GUI.Forms
 		
 		private void mnuOnlineHelp_Click(object sender, EventArgs e)
 		{
-			string platform = Program.IsMono ? "linux" : "win";
-			Process.Start("http://www.mesen.ca/docs/?v=" + InteropEmu.GetMesenVersion() + "&p=" + platform + "&l=" + ResourceHelper.GetLanguageCode());
+			Process.Start("https://nintendonetplay.ml/mesen-s-guide.html");
 		}
 
 		private void mnuReportBug_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://www.mesen.ca/ReportBug.php");
+			Process.Start("https://github.com/Retro-Nintendo-Online/NES-Netplay/issues");
 		}
 
 		private void mnuHelpWindow_Click(object sender, EventArgs e)

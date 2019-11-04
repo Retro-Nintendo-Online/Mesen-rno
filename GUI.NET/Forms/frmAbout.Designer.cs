@@ -37,7 +37,7 @@
             // 
             this.logoPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.logoPictureBox.Image = global::Mesen.GUI.Properties.Resources.MesenLogo;
-            this.logoPictureBox.Location = new System.Drawing.Point(74, 6);
+            this.logoPictureBox.Location = new System.Drawing.Point(71, 6);
             this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 12, 0, 5);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(112, 112);
@@ -51,9 +51,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(52, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 29);
+            this.label1.Size = new System.Drawing.Size(155, 29);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Mesen RMO";
+            this.label1.Text = "Mesen RNO";
             // 
             // label2
             // 
@@ -81,7 +81,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(267, 232);
+            this.ClientSize = new System.Drawing.Size(260, 232);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

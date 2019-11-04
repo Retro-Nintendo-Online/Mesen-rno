@@ -1454,12 +1454,6 @@ namespace Mesen.GUI.Forms
 
 	  }
 
-	  private void netplayDiscordToolStripMenuItem_Click(object sender, EventArgs e)
-		 {
-			string platform = Program.IsMono ? "linux" : "win";
-			Process.Start("http://discord.gg/DZHusb2/");
-		 }
-
 	  private void frmMain_Load(object sender, EventArgs e)
 	  {
 
@@ -1468,6 +1462,11 @@ namespace Mesen.GUI.Forms
 	  private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
 	  {
 
+	  }
+
+	  private void netplayDiscordToolStripMenuItem_Click_1(object sender, EventArgs e)
+	  {
+		 Process.Start("http://discord.gg/DZHusb2/");
 	  }
    }
 }

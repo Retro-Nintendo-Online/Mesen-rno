@@ -31,8 +31,10 @@ namespace Mesen.GUI.Forms
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuTimer = new System.Windows.Forms.Timer(this.components);
             this.panelRenderer = new System.Windows.Forms.Panel();
+            this.ctrlLoading = new Mesen.GUI.Controls.ctrlLoadingRom();
             this.ctrlRendererDualSystem = new Mesen.GUI.Controls.ctrlRenderer();
             this.ctrlNsfPlayer = new Mesen.GUI.Controls.ctrlNsfPlayer();
             this.ctrlRenderer = new Mesen.GUI.Controls.ctrlRenderer();
@@ -199,19 +201,13 @@ namespace Mesen.GUI.Forms
             this.toolStripMenuItem28 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuEditHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.netplayDiscordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuOnlineHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelpWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem26 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuCheckForUpdates = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuReportBug = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.netplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.netplayDiscordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.updateEmulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctrlLoading = new Mesen.GUI.Controls.ctrlLoadingRom();
             this.panelRenderer.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -236,6 +232,16 @@ namespace Mesen.GUI.Forms
             this.panelRenderer.DoubleClick += new System.EventHandler(this.ctrlRenderer_DoubleClick);
             this.panelRenderer.MouseLeave += new System.EventHandler(this.panelRenderer_MouseLeave);
             this.panelRenderer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ctrlRenderer_MouseMove);
+            // 
+            // ctrlLoading
+            // 
+            this.ctrlLoading.BackColor = System.Drawing.Color.Black;
+            this.ctrlLoading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlLoading.Location = new System.Drawing.Point(0, 0);
+            this.ctrlLoading.Name = "ctrlLoading";
+            this.ctrlLoading.Size = new System.Drawing.Size(430, 309);
+            this.ctrlLoading.TabIndex = 10;
+            this.ctrlLoading.Visible = false;
             // 
             // ctrlRendererDualSystem
             // 
@@ -279,8 +285,7 @@ namespace Mesen.GUI.Forms
             this.mnuOptions,
             this.mnuTools,
             this.mnuDebug,
-            this.mnuHelp,
-            this.netplayToolStripMenuItem});
+            this.mnuHelp});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(430, 24);
@@ -1568,11 +1573,10 @@ namespace Mesen.GUI.Forms
             // mnuHelp
             // 
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.netplayDiscordToolStripMenuItem,
             this.mnuOnlineHelp,
-            this.mnuHelpWindow,
             this.toolStripMenuItem26,
             this.mnuCheckForUpdates,
-            this.toolStripMenuItem20,
             this.mnuReportBug,
             this.toolStripMenuItem5,
             this.mnuAbout});
@@ -1582,99 +1586,55 @@ namespace Mesen.GUI.Forms
             this.mnuHelp.DropDownClosed += new System.EventHandler(this.mnu_DropDownClosed);
             this.mnuHelp.DropDownOpened += new System.EventHandler(this.mnu_DropDownOpened);
             // 
+            // netplayDiscordToolStripMenuItem
+            // 
+            this.netplayDiscordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("netplayDiscordToolStripMenuItem.Image")));
+            this.netplayDiscordToolStripMenuItem.Name = "netplayDiscordToolStripMenuItem";
+            this.netplayDiscordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.netplayDiscordToolStripMenuItem.Text = "Netplay Discord";
+            this.netplayDiscordToolStripMenuItem.Click += new System.EventHandler(this.netplayDiscordToolStripMenuItem_Click_1);
+            // 
             // mnuOnlineHelp
             // 
             this.mnuOnlineHelp.Image = global::Mesen.GUI.Properties.Resources.Help;
             this.mnuOnlineHelp.Name = "mnuOnlineHelp";
-            this.mnuOnlineHelp.Size = new System.Drawing.Size(194, 22);
+            this.mnuOnlineHelp.Size = new System.Drawing.Size(180, 22);
             this.mnuOnlineHelp.Text = "Online Help";
             this.mnuOnlineHelp.Click += new System.EventHandler(this.mnuOnlineHelp_Click);
-            // 
-            // mnuHelpWindow
-            // 
-            this.mnuHelpWindow.Image = global::Mesen.GUI.Properties.Resources.CommandLine;
-            this.mnuHelpWindow.Name = "mnuHelpWindow";
-            this.mnuHelpWindow.Size = new System.Drawing.Size(194, 22);
-            this.mnuHelpWindow.Text = "Command-line options";
-            this.mnuHelpWindow.Click += new System.EventHandler(this.mnuHelpWindow_Click);
             // 
             // toolStripMenuItem26
             // 
             this.toolStripMenuItem26.Name = "toolStripMenuItem26";
-            this.toolStripMenuItem26.Size = new System.Drawing.Size(191, 6);
+            this.toolStripMenuItem26.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuCheckForUpdates
             // 
             this.mnuCheckForUpdates.Image = global::Mesen.GUI.Properties.Resources.SoftwareUpdate;
             this.mnuCheckForUpdates.Name = "mnuCheckForUpdates";
-            this.mnuCheckForUpdates.Size = new System.Drawing.Size(194, 22);
+            this.mnuCheckForUpdates.Size = new System.Drawing.Size(180, 22);
             this.mnuCheckForUpdates.Text = "Check for updates";
             this.mnuCheckForUpdates.Click += new System.EventHandler(this.mnuCheckForUpdates_Click);
-            // 
-            // toolStripMenuItem20
-            // 
-            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(191, 6);
             // 
             // mnuReportBug
             // 
             this.mnuReportBug.Image = global::Mesen.GUI.Properties.Resources.Comment;
             this.mnuReportBug.Name = "mnuReportBug";
-            this.mnuReportBug.Size = new System.Drawing.Size(194, 22);
-            this.mnuReportBug.Text = "Report a bug";
+            this.mnuReportBug.Size = new System.Drawing.Size(180, 22);
+            this.mnuReportBug.Text = "Report A Bug";
             this.mnuReportBug.Click += new System.EventHandler(this.mnuReportBug_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(191, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuAbout
             // 
             this.mnuAbout.Image = global::Mesen.GUI.Properties.Resources.Exclamation;
             this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(194, 22);
+            this.mnuAbout.Size = new System.Drawing.Size(180, 22);
             this.mnuAbout.Text = "About";
             this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
-            // 
-            // netplayToolStripMenuItem
-            // 
-            this.netplayToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.netplayDiscordToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.updateEmulatorToolStripMenuItem});
-            this.netplayToolStripMenuItem.Name = "netplayToolStripMenuItem";
-            this.netplayToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.netplayToolStripMenuItem.Text = "Netplay";
-            // 
-            // netplayDiscordToolStripMenuItem
-            // 
-            this.netplayDiscordToolStripMenuItem.Name = "netplayDiscordToolStripMenuItem";
-            this.netplayDiscordToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.netplayDiscordToolStripMenuItem.Text = "Netplay Discord";
-            this.netplayDiscordToolStripMenuItem.Click += new System.EventHandler(this.netplayDiscordToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
-            // 
-            // updateEmulatorToolStripMenuItem
-            // 
-            this.updateEmulatorToolStripMenuItem.Name = "updateEmulatorToolStripMenuItem";
-            this.updateEmulatorToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.updateEmulatorToolStripMenuItem.Text = "Update Emulator";
-            this.updateEmulatorToolStripMenuItem.Click += new System.EventHandler(this.updateEmulatorToolStripMenuItem_Click);
-            // 
-            // ctrlLoading
-            // 
-            this.ctrlLoading.BackColor = System.Drawing.Color.Black;
-            this.ctrlLoading.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlLoading.Location = new System.Drawing.Point(0, 0);
-            this.ctrlLoading.Name = "ctrlLoading";
-            this.ctrlLoading.Size = new System.Drawing.Size(430, 309);
-            this.ctrlLoading.TabIndex = 10;
-            this.ctrlLoading.Visible = false;
             // 
             // frmMain
             // 
@@ -1829,7 +1789,6 @@ namespace Mesen.GUI.Forms
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem23;
 		private System.Windows.Forms.ToolStripMenuItem mnuPrescale2xFilter;
 		private System.Windows.Forms.ToolStripMenuItem mnuPrescale3xFilter;
-		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem20;
 		private System.Windows.Forms.ToolStripMenuItem mnuReportBug;
 		private System.Windows.Forms.ToolStripMenuItem mnuRunAllGameTests;
 		private System.Windows.Forms.ToolStripMenuItem mnuRandomGame;
@@ -1841,7 +1800,6 @@ namespace Mesen.GUI.Forms
 		private System.Windows.Forms.ToolStripMenuItem mnuVideoRecorder;
 		private System.Windows.Forms.ToolStripMenuItem mnuAviRecord;
 		private System.Windows.Forms.ToolStripMenuItem mnuAviStop;
-		private System.Windows.Forms.ToolStripMenuItem mnuHelpWindow;
 		private System.Windows.Forms.ToolStripMenuItem mnuPrescale6xFilter;
 		private System.Windows.Forms.ToolStripMenuItem mnuPrescale8xFilter;
 		private System.Windows.Forms.ToolStripMenuItem mnuPrescale10xFilter;
@@ -1879,11 +1837,8 @@ namespace Mesen.GUI.Forms
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem28;
 		private System.Windows.Forms.ToolStripMenuItem mnuProfiler;
 		private System.Windows.Forms.ToolStripMenuItem mnuWatchWindow;
-	  private System.Windows.Forms.ToolStripMenuItem netplayToolStripMenuItem;
-	  private System.Windows.Forms.ToolStripMenuItem netplayDiscordToolStripMenuItem;
-	  private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-	  private System.Windows.Forms.ToolStripMenuItem updateEmulatorToolStripMenuItem;
 	  private Controls.ctrlLoadingRom ctrlLoading;
+	  private System.Windows.Forms.ToolStripMenuItem netplayDiscordToolStripMenuItem;
    }
 }
 
