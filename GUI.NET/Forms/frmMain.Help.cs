@@ -149,7 +149,7 @@ namespace Mesen.GUI.Forms
 		
 		private void mnuOnlineHelp_Click(object sender, EventArgs e)
 		{
-			Process.Start("https://nintendonetplay.ml/mesen-s-guide.html");
+			Process.Start("https://nintendonetplay.ml/mesen-guide.html");
 		}
 
 		private void mnuReportBug_Click(object sender, EventArgs e)
