@@ -75,20 +75,15 @@ namespace Mesen.GUI.Forms
 			ThemeHelper.InitTheme(this.BackColor);
 			InitializeComponent();
 
-			ThemeHelper.ExcludeFromTheme(panelInfo);
 			ThemeHelper.ExcludeFromTheme(panelRenderer);
 
 			this.StartPosition = FormStartPosition.CenterScreen;
 
 			Version currentVersion = new Version(InteropEmu.GetMesenVersion());
-			lblVersion.Text = currentVersion.ToString();
 
 			if(!Program.IsMono) {
 				_fonts.AddFontFile(Path.Combine(ConfigManager.HomeFolder, "Resources", "PixelFont.ttf"));
-				lblVersion.Font = new Font(_fonts.Families[0], 10);
 			} else {
-				lblVersion.Margin = new Padding(0, 0, 3, 0);
-				picIcon.Margin = new Padding(3, 5, 3, 3);
 			}
 
 #if AUTOBUILD
@@ -106,7 +101,6 @@ namespace Mesen.GUI.Forms
 			_commandLineArgs = (string[])args.Clone();
 
 			Application.AddMessageFilter(this);
-			this.Resize += ResizeRecentGames;
 			this.FormClosed += (s, e) => Application.RemoveMessageFilter(this);
 		}
 		
@@ -461,17 +455,6 @@ namespace Mesen.GUI.Forms
 			base.ScaleControl(factor, specified);
 		}
 
-		private void ResizeRecentGames(object sender, EventArgs e)
-		{
-			if(this.ClientSize.Height < 400 * _yFactor) {
-				ctrlRecentGames.Height = this.ClientSize.Height - (int)((125 - Math.Min(50, 400 - (int)(this.ClientSize.Height / _yFactor))) * _yFactor);
-			} else {
-				ctrlRecentGames.Height = this.ClientSize.Height - (int)(125 * _yFactor);
-			}
-			ctrlRecentGames.Width = this.ClientSize.Width;
-			ctrlRecentGames.Top = (this.HideMenuStrip && this.menuStrip.Visible) ? -menuStrip.Height : 0;
-		}
-
 		private void frmMain_Resize(object sender, EventArgs e)
 		{
 			if(_enableResize && this.WindowState != FormWindowState.Minimized) {
@@ -625,10 +608,6 @@ namespace Mesen.GUI.Forms
 
 		private void ctrlRenderer_MouseMove(object sender, MouseEventArgs e)
 		{
-			if(sender != this.ctrlRecentGames) {
-				CursorManager.OnMouseMove((Control)sender);
-			}
-
 			if(this.HideMenuStrip && !this.menuStrip.ContainsFocus) {
 				if(sender == ctrlRenderer) {
 					this.menuStrip.Visible = ctrlRenderer.Top + e.Y < 30;
@@ -693,7 +672,6 @@ namespace Mesen.GUI.Forms
 							_hdPackEditorWindow.Close();
 						}
 						if(!ConfigManager.Config.PreferenceInfo.DisableGameSelectionScreen) {
-							ctrlRecentGames.Initialize();
 						}
 						if(e.Parameter == IntPtr.Zero) {
 							//We are completely stopping the emulation, close fullscreen mode
@@ -808,13 +786,6 @@ namespace Mesen.GUI.Forms
 			BindShortcut(mnuSwitchDiskSide, EmulatorShortcut.SwitchDiskSide, runningFdsMultipleDisks);
 			BindShortcut(mnuEjectDisk, EmulatorShortcut.EjectDisk, runningFdsNoAutoInsert);
 
-			BindShortcut(mnuInsertCoin1, EmulatorShortcut.InsertCoin1, runningVsSystem);
-			BindShortcut(mnuInsertCoin2, EmulatorShortcut.InsertCoin2, runningVsSystem);
-			BindShortcut(mnuInsertCoin3, EmulatorShortcut.InsertCoin3, runningVsDualSystem);
-			BindShortcut(mnuInsertCoin4, EmulatorShortcut.InsertCoin4, runningVsDualSystem);
-
-			BindShortcut(mnuInputBarcode, EmulatorShortcut.InputBarcode, hasBarcodeReader);
-
 			BindShortcut(mnuShowFPS, EmulatorShortcut.ToggleFps);
 
 			BindShortcut(mnuScale1x, EmulatorShortcut.SetScale1x);
@@ -826,7 +797,6 @@ namespace Mesen.GUI.Forms
 
 			BindShortcut(mnuFullscreen, EmulatorShortcut.ToggleFullscreen);
 
-			BindShortcut(mnuLoadLastSession, EmulatorShortcut.LoadLastSession, enableLoadLastSession);
 
 			BindShortcut(mnuTakeScreenshot, EmulatorShortcut.TakeScreenshot, runningNotNsf);
 			BindShortcut(mnuRandomGame, EmulatorShortcut.LoadRandomGame);
@@ -1084,10 +1054,6 @@ namespace Mesen.GUI.Forms
 					bool running = _emuThread != null;
 					bool devMode = ConfigManager.Config.PreferenceInfo.DeveloperMode;
 					mnuDebug.Visible = devMode;
-
-					panelInfo.Visible = !running;
-					ctrlRecentGames.Visible = !running;
-
 					ctrlLoading.Visible = (_romLoadCounter > 0);
 
 					UpdateWindowTitle();
@@ -1168,10 +1134,6 @@ namespace Mesen.GUI.Forms
 					mnuTestRecordFrom.Enabled = (mnuTestRecordStart.Enabled || mnuTestRecordNow.Enabled || mnuTestRecordMovie.Enabled || mnuTestRecordTest.Enabled);
 
 					bool tapeRecording = InteropEmu.IsRecordingTapeFile();
-					mnuTapeRecorder.Enabled = !isNetPlayClient;
-					mnuLoadTapeFile.Enabled = !isNetPlayClient;
-					mnuStartRecordTapeFile.Enabled = !tapeRecording && !isNetPlayClient;
-					mnuStopRecordTapeFile.Enabled = tapeRecording;
 
 					mnuDebugger.Visible = !devMode;
 					mnuDebugger.Enabled = !devMode && running;
@@ -1404,7 +1366,6 @@ namespace Mesen.GUI.Forms
 				this.BeginInvoke((MethodInvoker)(() => {
 					int rendererTop = (panelRenderer.Height + (this.menuStrip.Visible ? menuStrip.Height : 0) - ctrlRenderer.Height) / 2;
 					this.ctrlRenderer.Top = rendererTop + (this.menuStrip.Visible ? -menuStrip.Height : 0);
-					this.ctrlRecentGames.Top = this.menuStrip.Visible ? -menuStrip.Height : 0;
 				}));
 			}
 		}
@@ -1487,5 +1448,26 @@ namespace Mesen.GUI.Forms
 				}));
 			});
 		}
-	}
+
+	  private void updateEmulatorToolStripMenuItem_Click(object sender, EventArgs e)
+	  {
+
+	  }
+
+	  private void netplayDiscordToolStripMenuItem_Click(object sender, EventArgs e)
+		 {
+			string platform = Program.IsMono ? "linux" : "win";
+			Process.Start("http://discord.gg/DZHusb2/");
+		 }
+
+	  private void frmMain_Load(object sender, EventArgs e)
+	  {
+
+	  }
+
+	  private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+	  {
+
+	  }
+   }
 }

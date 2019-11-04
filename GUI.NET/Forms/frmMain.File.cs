@@ -272,7 +272,6 @@ namespace Mesen.GUI.Forms
 		private void mnuFile_DropDownOpening(object sender, EventArgs e)
 		{
 			mnuRecentFiles.Enabled = ConfigManager.Config.RecentFiles.Count > 0;
-			mnuLoadLastSession.Visible = !ConfigManager.Config.PreferenceInfo.DisableGameSelectionScreen;
 		}
 
 		private void UpdateRecentFiles()

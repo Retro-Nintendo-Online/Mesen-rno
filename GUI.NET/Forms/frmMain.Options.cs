@@ -145,7 +145,6 @@ namespace Mesen.GUI.Forms
 					ResourceHelper.ApplyResources(this);
 					UpdateMenus();
 					InitializeNsfMode();
-					ctrlRecentGames.UpdateGameInfo();
 					TopMost = ConfigManager.Config.PreferenceInfo.AlwaysOnTop;
 					FormBorderStyle = ConfigManager.Config.PreferenceInfo.DisableMouseResize ? FormBorderStyle.Fixed3D : FormBorderStyle.Sizable;
 				} else {
@@ -154,7 +153,6 @@ namespace Mesen.GUI.Forms
 					UpdateViewerSize();
 				}
 			}
-			ResizeRecentGames(sender, e);
 		}
 
 		private void mnuEmulationConfig_Click(object sender, EventArgs e)

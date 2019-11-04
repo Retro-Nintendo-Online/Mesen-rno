@@ -145,7 +145,6 @@ namespace Mesen.GUI.Forms
 
 		private void mnuCheckForUpdates_Click(object sender, EventArgs e)
 		{
-			CheckForUpdates(true);
 		}
 		
 		private void mnuOnlineHelp_Click(object sender, EventArgs e)

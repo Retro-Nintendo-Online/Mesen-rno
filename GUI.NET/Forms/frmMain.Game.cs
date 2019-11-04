@@ -17,10 +17,8 @@ namespace Mesen.GUI.Forms
 			InitializeFdsDiskMenu();
 
 			bool hasBarcodeReader = InteropEmu.GetAvailableFeatures().HasFlag(ConsoleFeatures.BarcodeReader);
-			mnuInputBarcode.Visible = hasBarcodeReader;
 
 			bool hasTapeRecorder = InteropEmu.GetAvailableFeatures().HasFlag(ConsoleFeatures.TapeRecorder);
-			mnuTapeRecorder.Visible = hasTapeRecorder;
 
 			sepBarcode.Visible = hasBarcodeReader || hasTapeRecorder;
 		}
@@ -54,10 +52,6 @@ namespace Mesen.GUI.Forms
 		private void InitializeVsSystemMenu()
 		{
 			sepVsSystem.Visible = InteropEmu.IsVsSystem() || InteropEmu.GetDipSwitchCount() > 0;
-			mnuInsertCoin1.Visible = InteropEmu.IsVsSystem();
-			mnuInsertCoin2.Visible = InteropEmu.IsVsSystem();
-			mnuInsertCoin3.Visible = InteropEmu.IsVsDualSystem();
-			mnuInsertCoin4.Visible = InteropEmu.IsVsDualSystem();
 			mnuGameConfig.Visible = InteropEmu.GetDipSwitchCount() > 0;
 		}
 
