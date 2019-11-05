@@ -460,7 +460,7 @@
 		<Form ID="frmServerConfig" Title="Server Configuration">
 			<Control ID="lblPort">Port:</Control>
 			<Control ID="chkPublicServer">Public server</Control>
-			<Control ID="lblServerName">Server name:</Control>
+			<Control ID="lblServerName">IP:</Control>
 			<Control ID="chkSpectator">Allow spectators</Control>
 			<Control ID="lblMaxPlayers">Max. number of players:</Control>
 			<Control ID="lblPassword">Password:</Control>
@@ -468,7 +468,7 @@
 			<Control ID="btnCancel">Cancel</Control>
 		</Form>
 		<Form ID="frmClientConfig" Title="Connect...">
-			<Control ID="lblHost">Host:</Control>
+			<Control ID="lblHost">IP:</Control>
 			<Control ID="lblPort">Port:</Control>
 			<Control ID="lblPassword">Password:</Control>
 			<Control ID="chkSpectator">Join as spectator</Control>

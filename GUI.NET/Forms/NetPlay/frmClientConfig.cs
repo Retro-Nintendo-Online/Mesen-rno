@@ -21,7 +21,6 @@ namespace Mesen.GUI.Forms.NetPlay
 			Entity = ConfigManager.Config.ClientConnectionInfo;
 
 			AddBinding("Host", this.txtHost);
-			AddBinding("Password", this.txtPassword);
 			AddBinding("Spectator", chkSpectator);
 			this.txtPort.Text = ConfigManager.Config.ClientConnectionInfo.Port.ToString();
 		}
@@ -40,5 +39,10 @@ namespace Mesen.GUI.Forms.NetPlay
 				this.btnOK.Enabled = !string.IsNullOrWhiteSpace(this.txtHost.Text);
 			}
 		}
-	}
+
+	  private void chkSpectator_CheckedChanged(object sender, EventArgs e)
+	  {
+
+	  }
+   }
 }

@@ -19,7 +19,6 @@ namespace Mesen.GUI.Forms.NetPlay
 
 			this.txtServerName.Text = ConfigManager.Config.ServerInfo.Name;
 			this.txtPort.Text = ConfigManager.Config.ServerInfo.Port.ToString();
-			this.txtPassword.Text = string.Empty;
 		}
 
 		protected override void UpdateConfig()
@@ -27,7 +26,6 @@ namespace Mesen.GUI.Forms.NetPlay
 			ConfigManager.Config.ServerInfo = new ServerInfo() {
 				Name = this.txtServerName.Text,
 				Port = Convert.ToUInt16(this.txtPort.Text),
-				Password = this.txtPassword.Text
 			};
 		}
 
@@ -40,5 +38,10 @@ namespace Mesen.GUI.Forms.NetPlay
 				this.btnOK.Enabled = !string.IsNullOrWhiteSpace(this.txtServerName.Text);
 			}
 		}
-	}
+
+	  private void lblServerName_Click(object sender, EventArgs e)
+	  {
+
+	  }
+   }
 }
