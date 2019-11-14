@@ -8,18 +8,16 @@ This emulator bundled a modified version of Mesen
 ## Installation
 <sub>(note: ROMs will need to be downloaded separately)</sub>
 
-### Windows
+## Compiling
 
-An executable file for the most recent version of Mesen RNO can be downloaded [here](https://www.nintendonetplay.ml/mesen-download.html).
+Windows: 
+1) Clone the Git Repo
+2) Open Mesen.sln in Visual Studio 2017
+3) Set Build Path to Release -> x86
+4) Build
 
-Alternatively you can build the project from source using the Mesen.sln file. We use Visual Studio 2017
-To build it using Visual Studio 2017 we use a x86 (32bit) build with it being `Release -> x86 -> Core`
-
-### Linux
-
-An executable file for the most reason version of Mesen RNO **can soon** be downloaded [here](https://www.nintendonetplay.ml/mesen-download.html).
-
-Alternatively you can build from source. Instructions posted later.
+Linux:
+TBA
 
 ### License
 Mesen RNO is licensed under the [GNU General Public License v3.0](LICENSE)
